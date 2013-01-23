@@ -1,6 +1,6 @@
 'use strict';
 
-var apiByteApp = angular.module('apiByteApp', [])
+var apiByteApp = angular.module('apiByteApp', ['ngResource'])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {
