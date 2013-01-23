@@ -18,14 +18,15 @@ apiByteApp.factory('Search', function($timeout, $q, $rootScope, $http) {
     var youTubeDataDeferred = $q.defer();
 
     var requestOptions = {
-      part: 'snippet',
-      maxResults: 20
+      part: 'snippet'
     }
 
     if(nPageToken) {
       requestOptions.pageToken = nPageToken;
+      requestOptions.maxResults = 2;
     } else if(query) {
       requestOptions.q = query;
+      requestOptions.maxResults = 5;
     }
 
     gapi.client.load('youtube', 'v3', function() {
