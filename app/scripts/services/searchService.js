@@ -23,10 +23,10 @@ apiByteApp.factory('Search', function($timeout, $q, $rootScope, $http) {
 
     if(nPageToken) {
       requestOptions.pageToken = nPageToken;
-      requestOptions.maxResults = 2;
+      requestOptions.maxResults = 3;
     } else if(query) {
       requestOptions.q = query;
-      requestOptions.maxResults = 5;
+      requestOptions.maxResults = 4;
     }
 
     gapi.client.load('youtube', 'v3', function() {

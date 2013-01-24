@@ -11,6 +11,10 @@ var apiByteApp = angular.module('apiByteApp', ['ngResource'])
         templateUrl: 'views/search.html',
         controller: 'SearchCtrl'
       })
+      .when('/play/:videoId', {
+        templateUrl: 'views/play.html',
+        controller: 'PlayCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

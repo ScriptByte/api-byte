@@ -1,11 +1,11 @@
 <div ng-controller="SearchCtrl">
     <div class="masthead">
         <div class="pull-right">
-            <form ng-submit="performSearch(query)">
-                <input type="text" placeholder="Search your video ..." class="search-query" ng-model="query">
+            <form>
+                <input type="text" placeholder="Search your video ..." class="search-query" ng-model="query" ng-change="performSearch(query)">
             </form>
         </div>
-        <h1>BYTE<em>API</em></h1>
+        <h1><a href="#/search">BYTE<em>API</em></a></h1>
     </div>
     <hr>
     <div class="jumbotron" when-scrolled="loadMore()">
@@ -13,7 +13,9 @@
             <li ng-repeat="video in videos">
                 <div class="row-fluid marketing">
                     <div class="span6">
-                        <img ng-src="{{video.snippet.thumbnails.medium.url}}" class="img-polaroid">
+                        <a href="#/play/{{video.id.videoId}}">
+                            <img ng-src="{{video.snippet.thumbnails.medium.url}}" class="img-polaroid">
+                        </a>
                     </div>
                     <div class="span6">
                         <p class="lead">{{ video.snippet.description }}</p>
