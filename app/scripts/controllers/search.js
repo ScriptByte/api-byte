@@ -3,8 +3,9 @@
 /**
  * @author Script Bunny on 22/01/2013 at 11:08 PM
  */
-apiByteApp.controller('SearchCtrl', function($scope, $routeParams, Search) {
+apiByteApp.controller('SearchCtrl', function($scope, $routeParams, $location, Search) {
 
+  $scope.totalVideos = 0;
 
   /**
    * Returns a promise which becomes available in future
@@ -13,8 +14,14 @@ apiByteApp.controller('SearchCtrl', function($scope, $routeParams, Search) {
    */
   $scope.performSearch = function(query) {
     Search.youTube(query).then(function(result) {
-      $scope.videos = result.items;
-      $scope.nextPageToken = result.nextPageToken;
+      if(query) {
+        $scope.videos = result.items;
+        $scope.totalVideos = result.pageInfo.totalResults;
+        $scope.nextPageToken = result.nextPageToken;
+      } else {
+        $scope.videos = null;
+        $scope.totalVideos = 0;
+      }
     });
   };
 
