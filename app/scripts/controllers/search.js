@@ -3,7 +3,7 @@
 /**
  * @author Script Bunny on 22/01/2013 at 11:08 PM
  */
-apiByteApp.controller('SearchCtrl', function($scope, $routeParams, $location, Search) {
+apiByteApp.controller('SearchCtrl', function($scope, $rootScope, $routeParams, $location, Search) {
 
   $scope.totalVideos = 0;
 
